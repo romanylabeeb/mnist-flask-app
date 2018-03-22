@@ -34,7 +34,9 @@ def get_image():
 
             predict_number = tf.argmax(ten.y, 1)
             predicted_number = ten.sess.run([predict_number], feed_dict={ten.x: [image_array]})
-            print("predict_number=",predict_number)
+            print("predict_number=",str(predict_number))
+            print("predict_number=",predict_number[0][1])
+            print("predict_number=",predict_number[1][1])
             guess = predicted_number[0][0]
             guess = int(guess)
             print(guess)
