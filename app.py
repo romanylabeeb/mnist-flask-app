@@ -1,5 +1,5 @@
 # taken from https://community.canvaslms.com/thread/2595
-
+import os
 from flask import Flask, render_template,url_for, request, jsonify
 import numpy as np
 import tensorflow as tf
@@ -44,4 +44,5 @@ def get_image():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    port = int(os.environ.get('PORT', 8082))
+    app.run(debug=True, host='0.0.0.0', port=port)
