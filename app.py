@@ -32,12 +32,12 @@ def get_image():
             saver = tf.train.import_meta_graph('tmp/tensor_model.meta')
             saver.restore(sess, tf.train.latest_checkpoint('tmp/'))
 
-            predict_number = tf.argmax(ten.y, 1)
+            predict_number = tf.argmax(ten.y, 10)
             predicted_number = ten.sess.run([predict_number], feed_dict={ten.x: [image_array]})
             print("predict_number=",str(predict_number))
-            print("predict_number=",predict_number[0][1])
-            print("predict_number=",predict_number[1][1])
             guess = predicted_number[0][0]
+            guess2 = predicted_number[0][1]
+            print("guess2=",guess2)
             guess = int(guess)
             print(guess)
 
